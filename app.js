@@ -143,8 +143,26 @@ let digimon = [
 
 
 // mandapatkan element html dengan id digimon
-// let listDigimon = document.getElementById("digimon");
+let listDigimon = document.getElementById("digimon");
 
+// menggunakan reusable function map dan filter untuk mendapatkan array of object
+const digiTrain = digimon.filter((digiTrain) => digiTrain.level === "Champion").map((digiTrain) => {
+    let cardDigimon = `
+    <div class="col">
+            <div class="card h-100">
+                <img src=${digiTrain.img} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${digiTrain.name}</h5>
+                    <p class="card-text">${digiTrain.level}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>`;
+
+    listDigimon.innerHTML += cardDigimon;
+})
 
 // menggunakan for loop untuk mendapatkan array of object
 
@@ -158,23 +176,6 @@ let digimon = [
 
 //     listDigimon.innerHTML += cardDigimon;
 // }
-
-
-
-
-
-// menggunakan reusable function map dan filter untuk mendapatkan array of object
-const digiTrain = digimon.filter((digiTrain) => digiTrain.level === "In Training").map((digiTrain) => {
-    let cardDigimon = `
-    <div class="card">
-        <img src= ${digiTrain.img} />
-        <h4>${digiTrain.name}</h4>
-        <p>${digiTrain.level}</p>
-    </div>`;
-
-    listDigimon.innerHTML += cardDigimon;
-})
-
 // function searchPokemonByName(name, digimons) {
 //     return digimons.filter(digimon => digimon.name.toLowerCase().includes(name.toLowerCase()));
 // }
@@ -184,26 +185,64 @@ const digiTrain = digimon.filter((digiTrain) => digiTrain.level === "In Training
 
 
 // mengembalikan nilai terkecil
-function minimal(a, b) {
-    if (a < b) {
-        return a;
-    } else if (b < a) {
-        return b;
-    } else {
-        return a;
-    }
-}
+// function minimal(a, b) {
+//     if (a < b) {
+//         return a;
+//     } else if (b < a) {
+//         return b;
+//     } else {
+//         return a;
+//     }
+// }
 
 
 // mencari index
-function findIndex(array, number) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === number) {
-            return i;
-        }
-    }
-    return -1;
-}
+// function findIndex(array, number) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] === number) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
 
 
-console.log(findIndex([1, 2, 3, 4, 5], 3))
+// console.log(findIndex([1, 2, 3, 4, 5], 3))
+
+
+// let newDigi = digimon.map((digis) => {
+//     return 'digimon ' + digis.name;
+// })
+
+// console.log(newDigi)
+
+// let findDigi = digimon.find(digis => digis.name === "Koromon").name;
+
+// console.log(findDigi)
+
+// let orang = ["Kimak", "Agus", "Koromon", "Varane"]
+
+// let OrangWithA = orang.filter(orang => orang[0] === "A");
+// console.log(OrangWithA)
+
+// let matrix = [
+//     ["kimak", 1],
+//     ["koromon", 2],
+//     ["varane", 3],
+//     ["isMarried", 4],
+//     [["michie", 9], ["licha", 5]]
+// ]
+
+// console.log(matrix[4][0][0]);
+
+
+// let angka = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+
+// let [satu, dua, , empat, lima, ...sisa] = angka;
+// console.log(satu)
+// console.log(dua)
+// console.log(empat)
+// console.log(lima)
+// console.log(...sisa)
+// let ganjil = angka.filter(number => number % 2 === 1);
+// console.log(ganjil)
